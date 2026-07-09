@@ -16,7 +16,7 @@ function linhaVazia(tr) {
 function prepararImpressao() {
   const rows = Array.from(document.querySelectorAll('#itens-body tr'));
   let linhasVaziasVisiveis = 0;
-  const maxLinhasVazias = 4;
+  const maxLinhasVazias = 2;
 
   rows.forEach(tr => {
     if (!linhaVazia(tr)) {
@@ -29,6 +29,12 @@ function prepararImpressao() {
     }
   });
 
+  const obs = document.getElementById('observacoes');
+  if (obs) {
+    obs.dataset.rowsOrig = obs.getAttribute('rows') || '4';
+    obs.setAttribute('rows', '2');
+  }
+
   document.body.classList.add('printing');
 }
 
@@ -36,6 +42,13 @@ function restaurarAposImpressao() {
   document.querySelectorAll('#itens-body tr.print-hide').forEach(tr => {
     tr.classList.remove('print-hide');
   });
+
+  const obs = document.getElementById('observacoes');
+  if (obs?.dataset.rowsOrig) {
+    obs.setAttribute('rows', obs.dataset.rowsOrig);
+    delete obs.dataset.rowsOrig;
+  }
+
   document.body.classList.remove('printing');
 }
 

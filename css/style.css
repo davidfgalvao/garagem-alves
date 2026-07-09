@@ -772,7 +772,7 @@ footer {
 
 /* ── IMPRESSÃO ── */
 @media print {
-  @page { margin: 6mm; size: A4 portrait; }
+  @page { margin: 5mm; size: A4 portrait; }
 
   html, body {
     background: white !important;
@@ -798,20 +798,18 @@ footer {
   .header-banner {
     width: 100% !important;
     height: auto !important;
-    max-height: none !important;
-    object-fit: unset !important;
+    max-height: 105px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
   }
 
-  .dev-credit-header {
-    font-size: 0.52rem !important;
-    padding: 3px 8px !important;
-  }
+  .dev-credit-header { display: none !important; }
 
-  .titulo-os { padding: 6px 14px 5px !important; }
+  .titulo-os { padding: 5px 14px 4px !important; }
   .titulo-os h1 { font-size: 1.15rem !important; }
 
-  .section { padding: 6px 14px !important; }
-  .campo-grupo { margin-bottom: 4px !important; gap: 10px !important; }
+  .section { padding: 5px 14px !important; }
+  .campo-grupo { margin-bottom: 3px !important; gap: 10px !important; }
   .campo label { font-size: 0.6rem !important; }
   .campo input { font-size: 10px !important; padding: 3px 2px !important; }
 
@@ -820,32 +818,76 @@ footer {
   tbody td input { font-size: 9px !important; padding: 3px 5px !important; }
   .total-row td { padding: 4px 8px !important; font-size: 0.65rem !important; }
 
-  .financeiro { padding: 6px 14px !important; }
+  .financeiro {
+    padding: 5px 14px !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+  }
+
+  .bloco-valores { flex: 1 !important; padding-right: 8px !important; }
+  .bloco-pagamento {
+    flex: 1 !important;
+    border-left: 1px solid #ddd !important;
+    padding-left: 10px !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
   .linha-valor { margin-bottom: 3px !important; }
   .linha-valor label { font-size: 0.65rem !important; min-width: 95px; }
   .linha-valor input { font-size: 10px !important; }
 
-  .bloco-pagamento h3 { font-size: 0.65rem !important; }
+  .bloco-pagamento h3 { font-size: 0.65rem !important; margin-bottom: 4px !important; }
+  .condicoes { margin-bottom: 4px !important; }
   .condicoes label { font-size: 0.68rem !important; }
   .forma-btn { font-size: 0.55rem !important; padding: 3px 5px !important; }
 
-  .garantia-obs { padding: 6px 14px !important; }
-  .garantia-escudo { width: 40px !important; height: 48px !important; }
-  .garantia-texto p { font-size: 0.58rem !important; }
-  .bloco-obs textarea { min-height: 44px !important; font-size: 9px !important; }
+  .garantia-obs {
+    padding: 5px 14px !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
 
-  .assinaturas { padding: 8px 14px 4px !important; }
-  .assinatura-linha { min-height: 24px !important; }
+  .bloco-garantia { flex: 1 1 48% !important; }
+  .bloco-obs { flex: 1 1 48% !important; }
+
+  .garantia-escudo { width: 40px !important; height: 48px !important; }
+  .garantia-texto p { font-size: 0.58rem !important; line-height: 1.3 !important; }
+
+  .bloco-obs textarea {
+    min-height: 30px !important;
+    height: 30px !important;
+    max-height: 34px !important;
+    font-size: 9px !important;
+    line-height: 14px !important;
+    resize: none !important;
+    overflow: hidden !important;
+  }
+
+  .assinaturas { padding: 5px 14px 2px !important; gap: 16px !important; }
+  .assinatura-linha { min-height: 18px !important; margin-bottom: 3px !important; }
 
   footer {
-    padding: 6px 14px 5px !important;
+    padding: 5px 14px 4px !important;
     height: auto !important;
     min-height: 0 !important;
   }
 
+  .footer-colunas { flex-wrap: nowrap !important; gap: 6px !important; }
   .footer-bloco .valor { font-size: 0.65rem !important; }
-  .footer-slogan { font-size: 0.62rem !important; margin-top: 4px !important; padding-top: 4px !important; }
-  .dev-credit-rodape { font-size: 0.5rem !important; }
+  .footer-slogan {
+    font-size: 0.62rem !important;
+    margin-top: 3px !important;
+    padding-top: 3px !important;
+  }
+  .dev-credit-rodape {
+    font-size: 0.48rem !important;
+    padding-top: 2px !important;
+    margin-top: 2px !important;
+  }
 
   .campo input, tbody td input, .linha-valor input,
   .bloco-obs textarea, .recibo-box input, .data-box input,
