@@ -33,17 +33,15 @@ body {
 .header {
   position: relative;
   background: #0a1628;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .header-banner {
   width: 100%;
-  height: auto;
+  height: 360px;
   display: block;
-  max-width: 100%;
-  max-height: 400px;
-  object-fit: contain;
-  object-position: center;
+  object-fit: cover;
+  object-position: center 42%;
 }
 
 .servicos-lista {
@@ -640,6 +638,11 @@ footer {
 
 /* ── RESPONSIVO ── */
 @media (max-width: 600px) {
+  .header-banner {
+    height: 220px;
+    object-position: center 40%;
+  }
+
   .servicos-lista {
     position: static;
     text-align: left;
@@ -688,8 +691,9 @@ footer {
   tr.print-hide { display: none !important; }
 
   .header-banner {
-    max-height: 280px !important;
-    object-fit: contain !important;
+    height: 260px !important;
+    object-fit: cover !important;
+    object-position: center 42% !important;
   }
 
   .dev-credit-header {
