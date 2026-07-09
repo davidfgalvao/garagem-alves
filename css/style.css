@@ -41,6 +41,9 @@ body {
   height: auto;
   display: block;
   max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  object-position: center;
 }
 
 .servicos-lista {
@@ -672,6 +675,11 @@ footer {
 
   .acoes, .btn-add-linha, .no-print { display: none !important; }
   tr.print-hide { display: none !important; }
+
+  .header-banner {
+    max-height: 280px !important;
+    object-fit: contain !important;
+  }
 
   .servicos-lista { top: 6px; right: 10px; }
   .servicos-lista li { font-size: 0.58rem !important; }
