@@ -4,7 +4,7 @@ document.getElementById('data-os').value = hoje;
 const numSalvo = localStorage.getItem('garagem-alves-numero-os');
 if (numSalvo) document.getElementById('numero-os').value = numSalvo;
 
-for (let i = 0; i < 10; i++) adicionarLinha();
+for (let i = 0; i < 4; i++) adicionarLinha();
 
 function linhaVazia(tr) {
   const desc = tr.querySelector('td:first-child input')?.value.trim();
@@ -16,7 +16,7 @@ function linhaVazia(tr) {
 function prepararImpressao() {
   const rows = Array.from(document.querySelectorAll('#itens-body tr'));
   let linhasVaziasVisiveis = 0;
-  const maxLinhasVazias = 3;
+  const maxLinhasVazias = 4;
 
   rows.forEach(tr => {
     if (!linhaVazia(tr)) {
@@ -144,7 +144,7 @@ function imprimir() {
 
     const tbody = document.getElementById('itens-body');
     tbody.innerHTML = '';
-    for (let i = 0; i < 10; i++) adicionarLinha();
+    for (let i = 0; i < 4; i++) adicionarLinha();
 
     const numAtual = parseInt(document.getElementById('numero-os').value, 10) || 1;
     const proximo = String(numAtual + 1).padStart(4, '0');
