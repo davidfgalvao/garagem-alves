@@ -9,7 +9,7 @@
   "lang": "pt-BR",
   "icons": [
     {
-      "src": "/assets/logo.png",
+      "src": "/assets/banner.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
