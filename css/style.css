@@ -39,9 +39,10 @@ body {
 
 .header-banner {
   width: 100%;
-  height: auto;
+  height: 290px;
   display: block;
-  vertical-align: middle;
+  object-fit: cover;
+  object-position: center 46%;
 }
 
 .dev-credit-header {
@@ -614,6 +615,11 @@ footer {
 
 /* ── RESPONSIVO ── */
 @media (max-width: 600px) {
+  .header-banner {
+    height: 175px;
+    object-position: center 44%;
+  }
+
   .titulo-os { flex-direction: column; align-items: flex-start; }
   .recibo-data { align-items: flex-start; }
   .titulo-os h1 { font-size: 1.2rem; }
@@ -656,7 +662,9 @@ footer {
 
   .header-banner {
     width: 100% !important;
-    height: auto !important;
+    height: 220px !important;
+    object-fit: cover !important;
+    object-position: center 46% !important;
   }
 
   .dev-credit-header {
