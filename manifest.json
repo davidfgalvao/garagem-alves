@@ -1,0 +1,18 @@
+{
+  "name": "Garagem do Alves – Ordem de Serviço",
+  "short_name": "Garagem Alves",
+  "description": "Sistema de ordem de serviço da Garagem do Alves – Oficina Mecânica",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a1628",
+  "theme_color": "#0d2d6b",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

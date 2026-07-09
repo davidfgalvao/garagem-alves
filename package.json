@@ -1,0 +1,16 @@
+{
+  "name": "garagem-alves-os",
+  "version": "1.0.0",
+  "description": "Sistema de Ordem de Serviço – Garagem do Alves",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve . -p 3000",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "ordem-de-servico",
+    "oficina-mecanica",
+    "garagem-do-alves"
+  ],
+  "author": "David Galvão – Arquiteto de Soluções"
+}
