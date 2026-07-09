@@ -33,16 +33,14 @@ body {
 .header {
   position: relative;
   background: #0a1628;
-  line-height: 0;
+  overflow: visible;
 }
 
 .header-banner {
   width: 100%;
   height: auto;
   display: block;
-  max-height: 155px;
-  object-fit: cover;
-  object-position: left center;
+  max-width: 100%;
 }
 
 .servicos-lista {
@@ -632,10 +630,8 @@ footer {
     position: static;
     text-align: left;
     padding: 6px 12px;
-    background: rgba(0,0,0,0.5);
+    background: #0a1628;
   }
-
-  .header-banner { max-height: 120px; }
 
   .titulo-os { flex-direction: column; align-items: flex-start; }
   .recibo-data { align-items: flex-start; }
@@ -676,11 +672,6 @@ footer {
 
   .acoes, .btn-add-linha, .no-print { display: none !important; }
   tr.print-hide { display: none !important; }
-
-  .header-banner {
-    max-height: 115px;
-    object-fit: cover;
-  }
 
   .servicos-lista { top: 6px; right: 10px; }
   .servicos-lista li { font-size: 0.58rem !important; }
