@@ -614,7 +614,144 @@ footer {
 
 .no-print { }
 
-/* ── RESPONSIVO ── */
+/* ── MOBILE / iPHONE ── */
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+    background: #f0f2f5;
+  }
+
+  .page {
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .acoes {
+    padding: 10px 12px;
+    padding-top: max(10px, env(safe-area-inset-top));
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+    gap: 8px;
+  }
+
+  .btn {
+    flex: 1 1 45%;
+    min-width: 0;
+    padding: 10px 10px;
+    font-size: 0.78rem;
+  }
+
+  .header-banner {
+    width: 100%;
+    height: auto;
+  }
+
+  .dev-credit-header {
+    font-size: 0.55rem;
+    padding: 4px 8px 5px;
+  }
+
+  .titulo-os {
+    padding: 10px 14px 8px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .titulo-os h1 { font-size: 1.1rem; }
+
+  .recibo-data {
+    align-items: flex-start;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .recibo-box, .data-box { flex: 1 1 auto; }
+
+  .data-box input[type="date"] {
+    min-width: 0;
+    font-size: 16px;
+  }
+
+  .section,
+  .financeiro,
+  .garantia-obs,
+  .assinaturas {
+    padding: 10px 14px;
+  }
+
+  .campo-grupo { gap: 10px; }
+
+  .campo,
+  .campo-cliente,
+  .campo-telefone,
+  .campo-veiculo,
+  .campo-placa,
+  .campo-modelo,
+  .campo-km {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .campo input,
+  tbody td input,
+  .linha-valor input,
+  .bloco-obs textarea,
+  .forma-input {
+    font-size: 16px;
+  }
+
+  table { min-width: 0; }
+
+  thead th {
+    font-size: 0.58rem;
+    padding: 6px 3px;
+  }
+
+  tbody td input { padding: 8px 4px; }
+
+  .col-desc { padding-left: 6px !important; }
+
+  .financeiro { flex-direction: column; gap: 0; }
+
+  .bloco-valores { padding-right: 0; }
+
+  .bloco-pagamento {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 10px;
+    margin-top: 6px;
+  }
+
+  .formas { gap: 5px; }
+
+  .forma-btn {
+    flex: 1 1 calc(50% - 3px);
+    justify-content: center;
+    font-size: 0.55rem;
+    padding: 8px 4px;
+  }
+
+  .garantia-obs { flex-direction: column; gap: 10px; }
+
+  .assinaturas { gap: 16px; padding-bottom: 8px; }
+
+  .footer-colunas {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btn-add-linha {
+    margin: 6px 14px;
+    width: calc(100% - 28px);
+  }
+}
+
+/* ── RESPONSIVO (legado) ── */
 @media (max-width: 600px) {
   .titulo-os { flex-direction: column; align-items: flex-start; }
   .recibo-data { align-items: flex-start; }
@@ -635,11 +772,12 @@ footer {
 
 /* ── IMPRESSÃO ── */
 @media print {
-  @page { margin: 6mm; size: A4 portrait; }
+  @page { margin: 4mm; size: A4 portrait; }
 
   html, body {
     background: white !important;
-    font-size: 11px !important;
+    font-size: 9px !important;
+    line-height: 1.25;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -651,55 +789,116 @@ footer {
     max-width: 100%;
     width: 100%;
     page-break-inside: avoid;
+    page-break-after: avoid;
   }
 
   .acoes, .btn-add-linha, .no-print { display: none !important; }
   tr.print-hide { display: none !important; }
 
+  .dev-credit-header { display: none !important; }
+
   .header-banner {
     width: 100% !important;
-    height: auto !important;
+    height: 88px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
   }
 
-  .dev-credit-header {
-    font-size: 0.52rem !important;
-    padding: 3px 8px !important;
+  .dev-credit-rodape { font-size: 0.48rem !important; padding-top: 2px !important; margin-top: 2px !important; }
+
+  .titulo-os {
+    padding: 4px 10px 3px !important;
+    border-bottom-width: 2px;
   }
 
-  .titulo-os { padding: 6px 14px 5px !important; }
-  .titulo-os h1 { font-size: 1.15rem !important; }
+  .titulo-os h1 { font-size: 1rem !important; }
 
-  .section { padding: 6px 14px !important; }
-  .campo-grupo { margin-bottom: 4px !important; gap: 10px !important; }
-  .campo label { font-size: 0.6rem !important; }
-  .campo input { font-size: 10px !important; padding: 3px 2px !important; }
+  .recibo-box, .data-box { padding: 2px 6px !important; }
 
-  .tabela-header h2 { font-size: 0.65rem !important; padding: 4px 22px 4px 14px !important; }
-  thead th { font-size: 0.62rem !important; padding: 4px 6px !important; }
-  tbody td input { font-size: 9px !important; padding: 3px 5px !important; }
-  .total-row td { padding: 4px 8px !important; font-size: 0.65rem !important; }
+  .section { padding: 4px 10px !important; }
 
-  .financeiro { padding: 6px 14px !important; }
-  .linha-valor { margin-bottom: 3px !important; }
-  .linha-valor label { font-size: 0.65rem !important; min-width: 95px; }
-  .linha-valor input { font-size: 10px !important; }
+  .campo-grupo { margin-bottom: 2px !important; gap: 6px !important; }
 
-  .bloco-pagamento h3 { font-size: 0.65rem !important; }
-  .condicoes label { font-size: 0.68rem !important; }
-  .forma-btn { font-size: 0.55rem !important; padding: 3px 5px !important; }
+  .campo label { font-size: 0.55rem !important; }
 
-  .garantia-obs { padding: 6px 14px !important; }
-  .garantia-escudo { width: 40px !important; height: 48px !important; }
-  .garantia-texto p { font-size: 0.58rem !important; }
-  .bloco-obs textarea { min-height: 44px !important; font-size: 9px !important; }
+  .campo input { font-size: 9px !important; padding: 2px 2px !important; }
 
-  .assinaturas { padding: 8px 14px 4px !important; }
-  .assinatura-linha { min-height: 24px !important; }
+  .tabela-header h2 { font-size: 0.58rem !important; padding: 3px 18px 3px 10px !important; }
 
-  footer { padding: 6px 14px 5px !important; }
-  .footer-bloco .valor { font-size: 0.65rem !important; }
-  .footer-slogan { font-size: 0.62rem !important; margin-top: 4px !important; padding-top: 4px !important; }
-  .dev-credit-rodape { font-size: 0.5rem !important; }
+  thead th { font-size: 0.55rem !important; padding: 3px 4px !important; }
+
+  tbody td input { font-size: 8px !important; padding: 2px 3px !important; }
+
+  .total-row td { padding: 3px 6px !important; font-size: 0.58rem !important; }
+
+  .total-row td span { font-size: 0.65rem !important; }
+
+  .financeiro { padding: 4px 10px !important; gap: 6px !important; }
+
+  .linha-valor { margin-bottom: 2px !important; }
+
+  .linha-valor label { font-size: 0.58rem !important; min-width: 82px; }
+
+  .linha-valor.destaque label { font-size: 0.62rem !important; }
+
+  .linha-valor input { font-size: 9px !important; max-width: 100px; }
+
+  .bloco-pagamento h3 { font-size: 0.58rem !important; margin-bottom: 3px !important; }
+
+  .condicoes { margin-bottom: 3px !important; gap: 8px !important; }
+
+  .condicoes label { font-size: 0.6rem !important; }
+
+  .forma-label { font-size: 0.55rem !important; margin-bottom: 2px !important; }
+
+  .forma-input { font-size: 8px !important; margin-bottom: 3px !important; }
+
+  .forma-btn { font-size: 0.5rem !important; padding: 2px 4px !important; }
+
+  .garantia-obs { padding: 4px 10px !important; gap: 6px !important; }
+
+  .garantia-escudo { width: 34px !important; height: 40px !important; }
+
+  .garantia-check { font-size: 0.65rem !important; }
+
+  .garantia-titulo, .garantia-dias { font-size: 0.38rem !important; }
+
+  .garantia-texto h3 { font-size: 0.58rem !important; margin-bottom: 1px !important; }
+
+  .garantia-texto p { font-size: 0.52rem !important; line-height: 1.2 !important; }
+
+  .bloco-obs label { font-size: 0.55rem !important; }
+
+  .bloco-obs textarea {
+    min-height: 32px !important;
+    max-height: 38px !important;
+    font-size: 8px !important;
+    line-height: 14px !important;
+    resize: none;
+    overflow: hidden;
+  }
+
+  .assinaturas { padding: 4px 10px 2px !important; gap: 12px !important; }
+
+  .assinatura-linha { min-height: 18px !important; margin-bottom: 2px !important; }
+
+  .assinatura span { font-size: 0.55rem !important; }
+
+  footer { padding: 4px 10px 3px !important; }
+
+  .footer-colunas { flex-wrap: nowrap !important; gap: 4px !important; }
+
+  .footer-bloco .titulo { font-size: 0.48rem !important; }
+
+  .footer-bloco .valor { font-size: 0.58rem !important; }
+
+  .footer-bloco .valor.grande { font-size: 0.62rem !important; }
+
+  .footer-slogan {
+    font-size: 0.55rem !important;
+    margin-top: 2px !important;
+    padding-top: 3px !important;
+  }
 
   .campo input, tbody td input, .linha-valor input,
   .bloco-obs textarea, .recibo-box input, .data-box input,

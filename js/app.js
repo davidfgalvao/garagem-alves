@@ -16,7 +16,7 @@ function linhaVazia(tr) {
 function prepararImpressao() {
   const rows = Array.from(document.querySelectorAll('#itens-body tr'));
   let linhasVaziasVisiveis = 0;
-  const maxLinhasVazias = 9;
+  const maxLinhasVazias = 4;
 
   rows.forEach(tr => {
     if (!linhaVazia(tr)) {
