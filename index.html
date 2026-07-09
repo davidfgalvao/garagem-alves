@@ -5,19 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="description" content="Sistema de Ordem de Serviço da Garagem do Alves – Oficina Mecânica em São Francisco, Brasília. Preencha, imprima ou salve em PDF.">
+  <meta name="description" content="Sistema de Ordem de Serviço da Garagem do Alves – Oficina Mecânica em São Francisco, Brasília.">
   <meta name="author" content="David Galvão – Arquiteto de Soluções">
   <meta name="theme-color" content="#0d2d6b">
   <meta name="robots" content="noindex, nofollow">
-
   <meta property="og:title" content="Ordem de Serviço – Garagem do Alves">
-  <meta property="og:description" content="Sistema online de ordem de serviço para oficina mecânica">
   <meta property="og:image" content="/assets/logo.png">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-
   <title>Ordem de Serviço – Garagem do Alves</title>
-
   <link rel="icon" href="/assets/logo.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/logo.png">
   <link rel="manifest" href="/manifest.json">
@@ -32,25 +26,15 @@
 
 <div class="page">
 
-  <!-- CABEÇALHO -->
+  <!-- CABEÇALHO – banner completo -->
   <div class="header">
-    <div class="logo-area">
-      <img src="/assets/logo.png" alt="Garagem do Alves – Oficina Mecânica" class="logo-img" width="220" height="auto">
-    </div>
-    <div class="header-info">
-      <ul class="servicos-lista">
-        <li>Mecânica Geral</li>
-        <li>Injeção Eletrônica</li>
-        <li>Freios • Suspensão</li>
-        <li>Manutenção Preventiva</li>
-      </ul>
-      <div class="header-contato">
-        <span>📞 <a href="https://wa.me/5561998633589" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">(61) 99863-3589</a></span>
-        <span>📍 Quadra 21, Casa 06 – São Francisco</span>
-        <span>🕐 Horário personalizado</span>
-      </div>
-      <div class="dev-credit">Desenvolvido por David Galvão – Arquiteto de Soluções</div>
-    </div>
+    <img src="/assets/logo.png" alt="Garagem do Alves – Oficina Mecânica" class="header-banner">
+    <ul class="servicos-lista">
+      <li>Mecânica Geral</li>
+      <li>Injeção Eletrônica</li>
+      <li>Freios • Suspensão</li>
+      <li>Manutenção Preventiva</li>
+    </ul>
   </div>
 
   <!-- TÍTULO OS + NÚMERO + DATA -->
@@ -71,84 +55,85 @@
   <!-- DADOS DO CLIENTE -->
   <div class="section">
     <div class="campo-grupo">
-      <div class="campo" style="flex: 2 1 240px;">
+      <div class="campo campo-cliente">
         <label for="cliente">Cliente</label>
-        <input type="text" id="cliente" placeholder="Nome completo do cliente" autocomplete="name">
+        <input type="text" id="cliente" autocomplete="name">
       </div>
-      <div class="campo" style="flex: 1 1 150px;">
+      <div class="campo campo-telefone">
         <label for="telefone">Telefone</label>
-        <input type="tel" id="telefone" placeholder="(  ) " autocomplete="tel" inputmode="tel" oninput="mascaraTel(this)">
+        <input type="tel" id="telefone" autocomplete="tel" inputmode="tel" oninput="mascaraTel(this)">
       </div>
     </div>
     <div class="campo-grupo">
       <div class="campo full">
         <label for="endereco">Endereço</label>
-        <input type="text" id="endereco" placeholder="Rua, número, bairro" autocomplete="street-address">
+        <input type="text" id="endereco" autocomplete="street-address">
       </div>
     </div>
     <div class="campo-grupo">
-      <div class="campo" style="flex: 2 1 200px;">
+      <div class="campo campo-veiculo">
         <label for="veiculo">Veículo</label>
-        <input type="text" id="veiculo" placeholder="Ex: Chevrolet Onix">
+        <input type="text" id="veiculo">
       </div>
-      <div class="campo" style="flex: 1 1 120px;">
+      <div class="campo campo-placa">
         <label for="placa">Placa</label>
-        <input type="text" id="placa" placeholder="AAA-0A00" maxlength="8" autocapitalize="characters" oninput="mascaraPlaca(this)">
+        <input type="text" id="placa" maxlength="8" autocapitalize="characters" oninput="mascaraPlaca(this)">
       </div>
     </div>
     <div class="campo-grupo">
-      <div class="campo" style="flex: 2 1 200px;">
+      <div class="campo campo-modelo">
         <label for="marca-modelo">Marca / Modelo</label>
-        <input type="text" id="marca-modelo" placeholder="Ex: HB20 1.0 Turbo 2022">
+        <input type="text" id="marca-modelo">
       </div>
-      <div class="campo" style="flex: 1 1 120px;">
-        <label for="km">KM Atual</label>
-        <input type="number" id="km" placeholder="Ex: 45000" inputmode="numeric" min="0">
+      <div class="campo campo-km">
+        <label for="km">KM</label>
+        <input type="number" id="km" inputmode="numeric" min="0">
       </div>
     </div>
   </div>
 
   <!-- TABELA SERVIÇOS E PEÇAS -->
-  <div class="tabela-header">
-    <h2>Serviços e Peças</h2>
+  <div class="tabela-secao">
+    <div class="tabela-header">
+      <h2>Serviços e Peças</h2>
+    </div>
+    <div class="tabela-wrap">
+      <table id="tabela-itens">
+        <thead>
+          <tr>
+            <th class="col-desc">Descrição</th>
+            <th class="col-unit">Valor Unitário</th>
+            <th class="col-qtd">Qtd</th>
+            <th class="col-total">Total</th>
+          </tr>
+        </thead>
+        <tbody id="itens-body"></tbody>
+        <tfoot>
+          <tr class="total-row">
+            <td colspan="3">TOTAL R$</td>
+            <td><span id="total-geral">R$ 0,00</span></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
   </div>
 
-  <div class="tabela-wrap">
-    <table id="tabela-itens">
-      <thead>
-        <tr>
-          <th style="width:50%; text-align:left; padding-left:12px;">Descrição</th>
-          <th style="width:20%;">Valor Unitário</th>
-          <th style="width:10%;">Qtd</th>
-          <th style="width:20%;">Total</th>
-        </tr>
-      </thead>
-      <tbody id="itens-body"></tbody>
-      <tfoot>
-        <tr class="total-row">
-          <td colspan="3" style="text-align:right; padding-right:16px;">TOTAL R$</td>
-          <td><span id="total-geral">R$ 0,00</span></td>
-        </tr>
-      </tfoot>
-    </table>
-  </div>
-
-  <button class="btn-add-linha" type="button" onclick="adicionarLinha()">+ Adicionar linha</button>
+  <button class="btn-add-linha no-print" type="button" onclick="adicionarLinha()">+ Adicionar linha</button>
 
   <!-- VALORES FINANCEIROS + PAGAMENTO -->
   <div class="financeiro">
     <div class="bloco-valores">
       <div class="linha-valor">
-        <label for="valor-total">Valor Total:</label>
-        <input type="text" id="valor-total" placeholder="R$ 0,00" readonly tabindex="-1">
+        <label for="valor-total">Valor Total: R$</label>
+        <input type="text" id="valor-total" readonly tabindex="-1">
       </div>
       <div class="linha-valor">
-        <label for="desconto">Desconto:</label>
-        <input type="text" id="desconto" placeholder="R$ 0,00" inputmode="decimal" oninput="formatarMoedaInput(this); calcularFinal()">
+        <label for="desconto">Desconto: R$</label>
+        <input type="text" id="desconto" inputmode="decimal" oninput="formatarMoedaInput(this); calcularFinal()">
       </div>
       <div class="linha-valor destaque">
-        <label for="valor-final">Valor Final:</label>
-        <input type="text" id="valor-final" placeholder="R$ 0,00" readonly tabindex="-1">
+        <label for="valor-final">Valor Final: R$</label>
+        <input type="text" id="valor-final" readonly tabindex="-1">
       </div>
     </div>
 
@@ -157,14 +142,14 @@
       <div class="condicoes">
         <label><input type="checkbox" id="cond-vista"> À Vista</label>
         <label><input type="checkbox" id="cond-prazo"> Prazo</label>
-        <input type="text" class="parcelas-input" id="parcelas" placeholder="Parcelas / detalhes">
       </div>
       <div class="forma-label">Forma de Pagamento</div>
+      <input type="text" class="forma-input" id="forma-pagamento" placeholder="">
       <div class="formas">
-        <button type="button" class="forma-btn" onclick="toggleForma(this)">PIX</button>
-        <button type="button" class="forma-btn" onclick="toggleForma(this)">Dinheiro</button>
-        <button type="button" class="forma-btn" onclick="toggleForma(this)">Crédito</button>
-        <button type="button" class="forma-btn" onclick="toggleForma(this)">Débito</button>
+        <button type="button" class="forma-btn" onclick="toggleForma(this)"><span class="forma-icone">◈</span> PIX</button>
+        <button type="button" class="forma-btn" onclick="toggleForma(this)"><span class="forma-icone">$</span> Dinheiro</button>
+        <button type="button" class="forma-btn" onclick="toggleForma(this)"><span class="forma-icone">💳</span> Cartão de Crédito</button>
+        <button type="button" class="forma-btn" onclick="toggleForma(this)"><span class="forma-icone">💳</span> Cartão de Débito</button>
       </div>
     </div>
   </div>
@@ -172,16 +157,19 @@
   <!-- GARANTIA + OBSERVAÇÕES -->
   <div class="garantia-obs">
     <div class="bloco-garantia">
-      <div class="garantia-icone">✓<br>GARANTIA<br>90 DIAS</div>
+      <div class="garantia-escudo">
+        <span class="garantia-check">✓</span>
+        <span class="garantia-titulo">GARANTIA</span>
+        <span class="garantia-dias">90 DIAS</span>
+      </div>
       <div class="garantia-texto">
         <h3>Garantia</h3>
-        <p>Garantia de 90 dias somente sobre o serviço executado.<br>
-        Não cobre peças fornecidas pelo cliente nem danos decorrentes de uso inadequado.</p>
+        <p>Garantia de 90 dias somente sobre o serviço executado. Não cobre peças fornecidas pelo cliente nem danos decorrentes de uso inadequado.</p>
       </div>
     </div>
     <div class="bloco-obs">
-      <label for="observacoes">Observações</label>
-      <textarea id="observacoes" placeholder="Observações adicionais, prazo de entrega, itens a verificar..."></textarea>
+      <label for="observacoes">Observações:</label>
+      <textarea id="observacoes" rows="4"></textarea>
     </div>
   </div>
 
@@ -199,18 +187,20 @@
 
   <!-- RODAPÉ -->
   <footer>
-    <div class="footer-bloco">
-      <span class="titulo">📞 Telefone / WhatsApp</span>
-      <span class="valor grande"><a href="https://wa.me/5561998633589" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">(61) 99863-3589</a></span>
-    </div>
-    <div class="footer-bloco">
-      <span class="titulo">📍 Endereço</span>
-      <span class="valor">Quadra 21, Casa 06</span>
-      <span class="valor">São Francisco</span>
-    </div>
-    <div class="footer-bloco">
-      <span class="titulo">🕐 Horário de Atendimento</span>
-      <span class="valor">Horário personalizado</span>
+    <div class="footer-colunas">
+      <div class="footer-bloco">
+        <span class="titulo">📞 Telefone / WhatsApp</span>
+        <span class="valor grande"><a href="https://wa.me/5561998633589" target="_blank" rel="noopener">(61) 99863-3589</a></span>
+      </div>
+      <div class="footer-bloco">
+        <span class="titulo">📍 Endereço</span>
+        <span class="valor">Quadra 21, Casa 06</span>
+        <span class="valor">São Francisco</span>
+      </div>
+      <div class="footer-bloco">
+        <span class="titulo">🕐 Horário de Atendimento</span>
+        <span class="valor">Horário personalizado</span>
+      </div>
     </div>
     <div class="footer-slogan">Qualidade, Confiança e Preço Justo!</div>
     <div class="dev-credit-rodape">Desenvolvido por David Galvão – Arquiteto de Soluções</div>
