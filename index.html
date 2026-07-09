@@ -15,7 +15,7 @@
   <link rel="icon" href="/assets/logo.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/logo.png">
   <link rel="manifest" href="/manifest.json">
-  <link rel="stylesheet" href="/css/style.css?v=8">
+  <link rel="stylesheet" href="/css/style.css?v=9">
 </head>
 <body>
 
@@ -115,8 +115,8 @@
 
   <button class="btn-add-linha no-print" type="button" onclick="adicionarLinha()">+ Adicionar linha</button>
 
-  <!-- VALORES FINANCEIROS + PAGAMENTO -->
-  <div class="financeiro">
+  <!-- BLOCO INFERIOR: 2×2 como na referência -->
+  <div class="bloco-inferior">
     <div class="bloco-valores">
       <div class="linha-valor">
         <label for="valor-total">Valor Total: R$</label>
@@ -147,24 +147,22 @@
         <button type="button" class="forma-btn" onclick="toggleForma(this)"><span class="forma-icone">💳</span> Cartão de Débito</button>
       </div>
     </div>
-  </div>
 
-  <!-- GARANTIA + OBSERVAÇÕES -->
-  <div class="garantia-obs">
     <div class="bloco-garantia">
       <div class="garantia-escudo">
         <span class="garantia-check">✓</span>
-        <span class="garantia-titulo">GARANTIA</span>
-        <span class="garantia-dias">90 DIAS</span>
+        <span class="garantia-titulo">Garantia</span>
+        <span class="garantia-dias">90 Dias</span>
       </div>
       <div class="garantia-texto">
         <h3>Garantia</h3>
         <p>Garantia de 90 dias somente sobre o serviço executado. Não cobre peças fornecidas pelo cliente nem danos decorrentes de uso inadequado.</p>
       </div>
     </div>
+
     <div class="bloco-obs">
       <label for="observacoes">Observações:</label>
-      <textarea id="observacoes" rows="4"></textarea>
+      <textarea id="observacoes" rows="3"></textarea>
     </div>
   </div>
 
@@ -208,6 +206,6 @@
   <button class="btn btn-limpar" onclick="limparFormulario()">🗑️ Limpar Formulário</button>
 </div>
 
-<script src="/js/app.js?v=8" defer></script>
+<script src="/js/app.js?v=9" defer></script>
 </body>
 </html>

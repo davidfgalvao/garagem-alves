@@ -4,7 +4,7 @@ document.getElementById('data-os').value = hoje;
 const numSalvo = localStorage.getItem('garagem-alves-numero-os');
 if (numSalvo) document.getElementById('numero-os').value = numSalvo;
 
-for (let i = 0; i < 9; i++) adicionarLinha();
+for (let i = 0; i < 10; i++) adicionarLinha();
 
 function linhaVazia(tr) {
   const desc = tr.querySelector('td:first-child input')?.value.trim();
@@ -16,7 +16,7 @@ function linhaVazia(tr) {
 function prepararImpressao() {
   const rows = Array.from(document.querySelectorAll('#itens-body tr'));
   let linhasVaziasVisiveis = 0;
-  const maxLinhasVazias = 2;
+  const maxLinhasVazias = 10;
 
   rows.forEach(tr => {
     if (!linhaVazia(tr)) {
@@ -31,8 +31,8 @@ function prepararImpressao() {
 
   const obs = document.getElementById('observacoes');
   if (obs) {
-    obs.dataset.rowsOrig = obs.getAttribute('rows') || '4';
-    obs.setAttribute('rows', '2');
+    obs.dataset.rowsOrig = obs.getAttribute('rows') || '3';
+    obs.setAttribute('rows', '3');
   }
 
   document.body.classList.add('printing');
@@ -157,7 +157,7 @@ function imprimir() {
 
     const tbody = document.getElementById('itens-body');
     tbody.innerHTML = '';
-    for (let i = 0; i < 9; i++) adicionarLinha();
+    for (let i = 0; i < 10; i++) adicionarLinha();
 
     const numAtual = parseInt(document.getElementById('numero-os').value, 10) || 1;
     const proximo = String(numAtual + 1).padStart(4, '0');

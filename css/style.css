@@ -121,9 +121,9 @@ body {
   min-width: 125px;
 }
 
-/* ── CAMPOS CLIENTE ── */
+/* ── CAMPOS CLIENTE (estilo referência: label + linha) ── */
 .section {
-  padding: 12px 20px;
+  padding: 10px 20px 12px;
   border-bottom: 1px solid #e8e8e8;
 }
 
@@ -131,44 +131,52 @@ body {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
+  align-items: baseline;
 }
 
 .campo-grupo:last-child { margin-bottom: 0; }
 
 .campo {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 6px;
   flex: 1 1 160px;
   min-width: 120px;
 }
 
 .campo.full { flex: 1 1 100%; }
-.campo-cliente { flex: 2 1 55%; }
-.campo-telefone { flex: 1 1 35%; }
-.campo-veiculo { flex: 2 1 55%; }
-.campo-placa { flex: 1 1 35%; }
-.campo-modelo { flex: 2 1 55%; }
-.campo-km { flex: 1 1 35%; }
+.campo-cliente { flex: 2 1 58%; }
+.campo-telefone { flex: 1 1 38%; }
+.campo-veiculo { flex: 2 1 58%; }
+.campo-placa { flex: 1 1 38%; }
+.campo-modelo { flex: 2 1 58%; }
+.campo-km { flex: 1 1 38%; }
 
 .campo label {
   font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--azul-escuro);
-  margin-bottom: 2px;
   letter-spacing: 0.4px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
+
+.campo label::after { content: ':'; }
 
 .campo input {
   border: none;
   border-bottom: 1.5px solid var(--cinza-borda);
-  padding: 5px 2px;
+  padding: 4px 2px;
   font-size: 14px;
   font-family: var(--fonte);
   outline: none;
   background: transparent;
   width: 100%;
+  flex: 1;
+  min-width: 0;
   border-radius: 0;
   -webkit-appearance: none;
   appearance: none;
@@ -270,24 +278,37 @@ tbody td input:focus { background: #eef4ff; }
 
 .btn-add-linha:hover { background: #eef4ff; }
 
-/* ── FINANCEIRO ── */
-.financeiro {
-  display: flex;
-  gap: 0;
-  flex-wrap: wrap;
-  padding: 12px 20px;
+/* ── BLOCO INFERIOR 2×2 (referência) ── */
+.bloco-inferior {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   border-bottom: 1px solid #e8e8e8;
 }
 
-.bloco-valores {
-  flex: 1 1 200px;
-  padding-right: 16px;
+.bloco-inferior > .bloco-valores,
+.bloco-inferior > .bloco-garantia {
+  border-right: 1px solid #e0e0e0;
 }
 
-.bloco-pagamento {
-  flex: 1 1 220px;
-  padding-left: 16px;
-  border-left: 1px solid #e0e0e0;
+.bloco-inferior > .bloco-valores,
+.bloco-inferior > .bloco-pagamento {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.bloco-inferior > div {
+  padding: 12px 16px;
+  min-width: 0;
+}
+
+.bloco-valores { display: flex; flex-direction: column; justify-content: center; }
+
+.bloco-pagamento h3 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--azul-escuro);
+  margin-bottom: 8px;
+  letter-spacing: 0.4px;
 }
 
 .linha-valor {
@@ -296,6 +317,8 @@ tbody td input:focus { background: #eef4ff; }
   gap: 6px;
   margin-bottom: 7px;
 }
+
+.linha-valor:last-child { margin-bottom: 0; }
 
 .linha-valor label {
   font-weight: 700;
@@ -323,15 +346,6 @@ tbody td input:focus { background: #eef4ff; }
 }
 
 .linha-valor input:focus { border-bottom-color: var(--azul); }
-
-.bloco-pagamento h3 {
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--azul-escuro);
-  margin-bottom: 8px;
-  letter-spacing: 0.4px;
-}
 
 .condicoes {
   display: flex;
@@ -409,17 +423,7 @@ tbody td input:focus { background: #eef4ff; }
   border-color: var(--azul);
 }
 
-/* ── GARANTIA E OBS ── */
-.garantia-obs {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  padding: 12px 20px;
-  border-bottom: 1px solid #e8e8e8;
-}
-
 .bloco-garantia {
-  flex: 1 1 200px;
   display: flex;
   align-items: flex-start;
   gap: 10px;
@@ -458,8 +462,6 @@ tbody td input:focus { background: #eef4ff; }
   line-height: 1.45;
 }
 
-.bloco-obs { flex: 1 1 200px; }
-
 .bloco-obs label {
   font-size: 0.72rem;
   font-weight: 700;
@@ -477,7 +479,7 @@ tbody td input:focus { background: #eef4ff; }
   font-size: 13px;
   font-family: var(--fonte);
   resize: vertical;
-  min-height: 72px;
+  min-height: 54px;
   outline: none;
   background: repeating-linear-gradient(
     transparent,
@@ -677,10 +679,26 @@ footer {
   }
 
   .section,
-  .financeiro,
-  .garantia-obs,
+  .bloco-inferior > div,
   .assinaturas {
     padding: 10px 14px;
+  }
+
+  .bloco-inferior {
+    grid-template-columns: 1fr;
+  }
+
+  .bloco-inferior > .bloco-valores,
+  .bloco-inferior > .bloco-garantia {
+    border-right: none;
+  }
+
+  .bloco-inferior > .bloco-pagamento {
+    border-top: 1px solid #e0e0e0;
+  }
+
+  .bloco-inferior > .bloco-obs {
+    border-top: 1px solid #e0e0e0;
   }
 
   .campo-grupo { gap: 10px; }
@@ -694,7 +712,11 @@ footer {
   .campo-km {
     flex: 1 1 100%;
     min-width: 0;
+    flex-direction: column;
+    align-items: stretch;
   }
+
+  .campo label { margin-bottom: 2px; }
 
   .campo input,
   tbody td input,
@@ -715,18 +737,6 @@ footer {
 
   .col-desc { padding-left: 6px !important; }
 
-  .financeiro { flex-direction: column; gap: 0; }
-
-  .bloco-valores { padding-right: 0; }
-
-  .bloco-pagamento {
-    border-left: none;
-    padding-left: 0;
-    border-top: 1px solid #e0e0e0;
-    padding-top: 10px;
-    margin-top: 6px;
-  }
-
   .formas { gap: 5px; }
 
   .forma-btn {
@@ -735,8 +745,6 @@ footer {
     font-size: 0.55rem;
     padding: 8px 4px;
   }
-
-  .garantia-obs { flex-direction: column; gap: 10px; }
 
   .assinaturas { gap: 16px; padding-bottom: 8px; }
 
@@ -766,17 +774,18 @@ footer {
   }
 
   .footer-colunas { flex-direction: column; }
-  .section, .financeiro, .garantia-obs, .assinaturas { padding: 10px 14px; }
+  .section, .bloco-inferior > div, .assinaturas { padding: 10px 14px; }
   .btn-add-linha { margin: 6px 14px; width: calc(100% - 28px); }
 }
 
-/* ── IMPRESSÃO ── */
+/* ── IMPRESSÃO – layout referência, 1 página A4 ── */
 @media print {
-  @page { margin: 5mm; size: A4 portrait; }
+  @page { margin: 6mm; size: A4 portrait; }
 
   html, body {
     background: white !important;
-    font-size: 11px !important;
+    font-size: 10px !important;
+    line-height: 1.3;
     margin: 0 !important;
     padding: 0 !important;
     -webkit-print-color-adjust: exact;
@@ -784,109 +793,145 @@ footer {
   }
 
   .page {
-    box-shadow: none;
-    margin: 0;
-    border-radius: 0;
-    max-width: 100%;
-    width: 100%;
+    box-shadow: none !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
     overflow: visible !important;
   }
 
-  .acoes, .btn-add-linha, .no-print { display: none !important; }
+  .acoes, .btn-add-linha, .no-print,
+  .dev-credit-header, .dev-credit-rodape { display: none !important; }
+
   tr.print-hide { display: none !important; }
 
   .header-banner {
     width: 100% !important;
-    height: auto !important;
-    max-height: 105px !important;
+    height: 78px !important;
+    max-height: 78px !important;
     object-fit: cover !important;
     object-position: center center !important;
   }
 
-  .dev-credit-header { display: none !important; }
-
-  .titulo-os { padding: 5px 14px 4px !important; }
-  .titulo-os h1 { font-size: 1.15rem !important; }
-
-  .section { padding: 5px 14px !important; }
-  .campo-grupo { margin-bottom: 3px !important; gap: 10px !important; }
-  .campo label { font-size: 0.6rem !important; }
-  .campo input { font-size: 10px !important; padding: 3px 2px !important; }
-
-  .tabela-header h2 { font-size: 0.65rem !important; padding: 4px 22px 4px 14px !important; }
-  thead th { font-size: 0.62rem !important; padding: 4px 6px !important; }
-  tbody td input { font-size: 9px !important; padding: 3px 5px !important; }
-  .total-row td { padding: 4px 8px !important; font-size: 0.65rem !important; }
-
-  .financeiro {
-    padding: 5px 14px !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    gap: 10px !important;
+  .titulo-os {
+    padding: 5px 14px 4px !important;
+    border-bottom-width: 2px !important;
   }
 
-  .bloco-valores { flex: 1 !important; padding-right: 8px !important; }
-  .bloco-pagamento {
-    flex: 1 !important;
-    border-left: 1px solid #ddd !important;
-    padding-left: 10px !important;
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+  .titulo-os h1 { font-size: 1.05rem !important; }
+
+  .recibo-box, .data-box { padding: 2px 8px !important; }
+
+  .section { padding: 4px 14px 5px !important; }
+
+  .campo-grupo { margin-bottom: 2px !important; gap: 8px !important; }
+
+  .campo label { font-size: 0.58rem !important; }
+
+  .campo input {
+    font-size: 9px !important;
+    padding: 2px 2px !important;
   }
 
-  .linha-valor { margin-bottom: 3px !important; }
-  .linha-valor label { font-size: 0.65rem !important; min-width: 95px; }
-  .linha-valor input { font-size: 10px !important; }
-
-  .bloco-pagamento h3 { font-size: 0.65rem !important; margin-bottom: 4px !important; }
-  .condicoes { margin-bottom: 4px !important; }
-  .condicoes label { font-size: 0.68rem !important; }
-  .forma-btn { font-size: 0.55rem !important; padding: 3px 5px !important; }
-
-  .garantia-obs {
-    padding: 5px 14px !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: flex-start !important;
-    gap: 10px !important;
+  .tabela-header h2 {
+    font-size: 0.62rem !important;
+    padding: 3px 20px 3px 14px !important;
   }
 
-  .bloco-garantia { flex: 1 1 48% !important; }
-  .bloco-obs { flex: 1 1 48% !important; }
+  thead th {
+    font-size: 0.58rem !important;
+    padding: 3px 4px !important;
+  }
 
-  .garantia-escudo { width: 40px !important; height: 48px !important; }
-  .garantia-texto p { font-size: 0.58rem !important; line-height: 1.3 !important; }
+  tbody td input {
+    font-size: 8px !important;
+    padding: 2px 4px !important;
+  }
+
+  .total-row td {
+    padding: 3px 8px !important;
+    font-size: 0.6rem !important;
+  }
+
+  .total-row td span { font-size: 0.68rem !important; }
+
+  .bloco-inferior {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .bloco-inferior > div { padding: 4px 10px !important; }
+
+  .linha-valor { margin-bottom: 2px !important; }
+
+  .linha-valor label { font-size: 0.58rem !important; min-width: 88px; }
+
+  .linha-valor.destaque label { font-size: 0.62rem !important; }
+
+  .linha-valor input { font-size: 9px !important; max-width: 100px; }
+
+  .bloco-pagamento h3 {
+    font-size: 0.58rem !important;
+    margin-bottom: 3px !important;
+  }
+
+  .condicoes { margin-bottom: 3px !important; gap: 6px !important; }
+
+  .condicoes label { font-size: 0.58rem !important; }
+
+  .forma-label { font-size: 0.55rem !important; margin-bottom: 2px !important; }
+
+  .forma-input { font-size: 8px !important; margin-bottom: 3px !important; }
+
+  .forma-btn { font-size: 0.48rem !important; padding: 2px 4px !important; }
+
+  .garantia-escudo { width: 36px !important; height: 42px !important; }
+
+  .garantia-texto h3 { font-size: 0.58rem !important; }
+
+  .garantia-texto p {
+    font-size: 0.52rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .bloco-obs label { font-size: 0.55rem !important; margin-bottom: 2px !important; }
 
   .bloco-obs textarea {
-    min-height: 30px !important;
-    height: 30px !important;
-    max-height: 34px !important;
-    font-size: 9px !important;
+    min-height: 34px !important;
+    height: 34px !important;
+    max-height: 38px !important;
+    font-size: 8px !important;
     line-height: 14px !important;
     resize: none !important;
     overflow: hidden !important;
   }
 
-  .assinaturas { padding: 5px 14px 2px !important; gap: 16px !important; }
-  .assinatura-linha { min-height: 18px !important; margin-bottom: 3px !important; }
+  .assinaturas { padding: 4px 14px 2px !important; gap: 14px !important; }
+
+  .assinatura-linha { min-height: 16px !important; margin-bottom: 2px !important; }
+
+  .assinatura span { font-size: 0.52rem !important; }
 
   footer {
-    padding: 5px 14px 4px !important;
+    padding: 4px 14px 3px !important;
     height: auto !important;
     min-height: 0 !important;
+    page-break-inside: avoid;
   }
 
-  .footer-colunas { flex-wrap: nowrap !important; gap: 6px !important; }
-  .footer-bloco .valor { font-size: 0.65rem !important; }
+  .footer-colunas { flex-wrap: nowrap !important; gap: 4px !important; }
+
+  .footer-bloco .titulo { font-size: 0.46rem !important; }
+
+  .footer-bloco .valor { font-size: 0.56rem !important; }
+
+  .footer-bloco .valor.grande { font-size: 0.6rem !important; }
+
   .footer-slogan {
-    font-size: 0.62rem !important;
-    margin-top: 3px !important;
-    padding-top: 3px !important;
-  }
-  .dev-credit-rodape {
-    font-size: 0.48rem !important;
-    padding-top: 2px !important;
+    font-size: 0.55rem !important;
     margin-top: 2px !important;
+    padding-top: 2px !important;
   }
 
   .campo input, tbody td input, .linha-valor input,
