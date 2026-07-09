@@ -1,9 +1,33 @@
-  document.getElementById('data-os').value = hoje;
+const hoje = new Date().toISOString().split('T')[0];
+document.getElementById('data-os').value = hoje;
 
-  const numSalvo = localStorage.getItem('garagem-alves-numero-os');
-  if (numSalvo) document.getElementById('numero-os').value = numSalvo;
+const numSalvo = localStorage.getItem('garagem-alves-numero-os');
+if (numSalvo) document.getElementById('numero-os').value = numSalvo;
 
-  for (let i = 0; i < 8; i++) adicionarLinha();
+for (let i = 0; i < 8; i++) adicionarLinha();
+
+function linhaVazia(tr) {
+  const desc = tr.querySelector('td:first-child input')?.value.trim();
+  const unit = tr.querySelector('.val-unit')?.value.trim();
+  const total = tr.querySelector('.val-total')?.value.trim();
+  return !desc && !unit && !total;
+}
+
+function prepararImpressao() {
+  document.querySelectorAll('#itens-body tr').forEach(tr => {
+    tr.classList.toggle('print-hide', linhaVazia(tr));
+  });
+  document.body.classList.add('printing');
+}
+
+function restaurarAposImpressao() {
+  document.querySelectorAll('#itens-body tr.print-hide').forEach(tr => {
+    tr.classList.remove('print-hide');
+  });
+  document.body.classList.remove('printing');
+}
+
+window.addEventListener('afterprint', restaurarAposImpressao);
 
   function adicionarLinha() {
     const tbody = document.getElementById('itens-body');
@@ -84,11 +108,12 @@
       el.value = v;
   }
 
-  function imprimir() {
-    const num = document.getElementById('numero-os').value;
-    localStorage.setItem('garagem-alves-numero-os', num);
-    window.print();
-  }
+function imprimir() {
+  const num = document.getElementById('numero-os').value;
+  localStorage.setItem('garagem-alves-numero-os', num);
+  prepararImpressao();
+  window.print();
+}
 
   function limparFormulario() {
     if (!confirm('Limpar todos os campos? Esta ação não pode ser desfeita.')) return;

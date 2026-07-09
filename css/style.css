@@ -626,23 +626,225 @@
   }
 
   @media print {
-    @page { margin: 10mm; size: A4; }
+    @page {
+      margin: 5mm;
+      size: A4 portrait;
+    }
 
-    body { background: white; }
+    html, body {
+      background: white !important;
+      font-size: 9px !important;
+      line-height: 1.2;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
 
     .page {
       box-shadow: none;
       margin: 0;
       border-radius: 0;
       max-width: 100%;
+      page-break-inside: avoid;
+      page-break-after: avoid;
     }
 
     .acoes, .btn-add-linha { display: none !important; }
 
-    .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    thead tr, .total-row td, .tabela-header, footer {
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
+    tr.print-hide { display: none !important; }
+
+    /* Cabeçalho compacto */
+    .header {
+      padding: 6px 10px !important;
+      gap: 6px !important;
+    }
+
+    .logo-img {
+      max-width: 110px !important;
+      max-height: 50px;
+    }
+
+    .servicos-lista,
+    .header-contato,
+    .dev-credit {
+      display: none !important;
+    }
+
+    .header-info { gap: 0 !important; }
+
+    /* Título */
+    .titulo-os {
+      padding: 4px 10px !important;
+      border-bottom-width: 2px;
+      gap: 4px !important;
+    }
+
+    .titulo-os h1 { font-size: 1rem !important; }
+
+    .recibo-box, .data-box {
+      padding: 2px 6px !important;
+      border-width: 1px;
+    }
+
+    .recibo-box label, .data-box label { font-size: 0.6rem !important; }
+
+    .recibo-box input { font-size: 0.75rem !important; }
+
+    .data-box input[type="date"] {
+      font-size: 0.7rem !important;
+      min-width: 90px;
+    }
+
+    /* Campos do cliente */
+    .section { padding: 4px 10px !important; }
+
+    .campo-grupo {
+      gap: 6px !important;
+      margin-bottom: 3px !important;
+    }
+
+    .campo label { font-size: 0.55rem !important; margin-bottom: 1px !important; }
+
+    .campo input, .campo select {
+      padding: 1px 2px !important;
+      font-size: 9px !important;
+      border-bottom-width: 1px;
+    }
+
+    /* Tabela */
+    .tabela-header { padding: 3px 10px !important; }
+
+    .tabela-header h2 { font-size: 0.6rem !important; }
+
+    thead th {
+      padding: 3px 4px !important;
+      font-size: 0.55rem !important;
+    }
+
+    tbody td { padding: 0 !important; }
+
+    tbody td input {
+      padding: 2px 3px !important;
+      font-size: 8px !important;
+    }
+
+    tbody tr:nth-child(even) { background: #f7f9fc !important; }
+
+    .total-row td {
+      padding: 3px 6px !important;
+      font-size: 0.6rem !important;
+    }
+
+    .total-row td span { font-size: 0.7rem !important; }
+
+    table { min-width: 0 !important; }
+
+    /* Financeiro */
+    .financeiro {
+      padding: 4px 10px !important;
+      gap: 8px !important;
+    }
+
+    .linha-valor { margin-bottom: 2px !important; gap: 4px !important; }
+
+    .linha-valor label { font-size: 0.6rem !important; min-width: 70px; }
+
+    .linha-valor.destaque label { font-size: 0.65rem !important; }
+
+    .linha-valor input {
+      padding: 1px 4px !important;
+      font-size: 9px !important;
+      width: 90px;
+      border-bottom-width: 1px;
+    }
+
+    .bloco-pagamento h3 { font-size: 0.6rem !important; margin-bottom: 3px !important; }
+
+    .condicoes { gap: 6px !important; margin-bottom: 3px !important; }
+
+    .condicoes label { font-size: 0.65rem !important; }
+
+    .condicoes input[type="checkbox"] { width: 10px; height: 10px; }
+
+    .condicoes .parcelas-input {
+      font-size: 8px !important;
+      width: 90px;
+      padding: 1px 2px !important;
+    }
+
+    .forma-label { font-size: 0.55rem !important; margin-bottom: 2px !important; }
+
+    .forma-btn {
+      padding: 2px 5px !important;
+      font-size: 0.55rem !important;
+      border-width: 1px;
+    }
+
+    /* Garantia e observações */
+    .garantia-obs {
+      padding: 4px 10px !important;
+      gap: 8px !important;
+    }
+
+    .garantia-icone {
+      width: 32px !important;
+      height: 32px !important;
+      font-size: 0.45rem !important;
+    }
+
+    .garantia-texto h3 { font-size: 0.6rem !important; margin-bottom: 1px !important; }
+
+    .garantia-texto p { font-size: 0.55rem !important; line-height: 1.25 !important; }
+
+    .bloco-obs label { font-size: 0.55rem !important; margin-bottom: 2px !important; }
+
+    .bloco-obs textarea {
+      min-height: 28px !important;
+      max-height: 36px !important;
+      padding: 3px !important;
+      font-size: 8px !important;
+      resize: none;
+      overflow: hidden;
+    }
+
+    /* Assinaturas */
+    .assinaturas {
+      padding: 4px 10px 2px !important;
+      gap: 16px !important;
+    }
+
+    .assinatura-linha {
+      min-height: 18px !important;
+      margin-bottom: 2px !important;
+      border-top-width: 1px;
+    }
+
+    .assinatura span { font-size: 0.55rem !important; }
+
+    /* Rodapé compacto */
+    footer {
+      padding: 5px 10px !important;
+      gap: 4px !important;
+      flex-wrap: nowrap !important;
+    }
+
+    .footer-bloco { gap: 1px !important; flex: 1; }
+
+    .footer-bloco .titulo { font-size: 0.5rem !important; }
+
+    .footer-bloco .valor { font-size: 0.6rem !important; }
+
+    .footer-bloco .valor.grande { font-size: 0.65rem !important; }
+
+    .footer-slogan {
+      font-size: 0.55rem !important;
+      padding-top: 3px !important;
+      margin-top: 2px !important;
+    }
+
+    .dev-credit-rodape {
+      font-size: 0.48rem !important;
+      padding-top: 3px !important;
+      margin-top: 2px !important;
     }
 
     .campo input, .campo select, tbody td input,
@@ -654,13 +856,14 @@
     .forma-btn.ativo {
       background: var(--azul) !important;
       color: white !important;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
     }
 
     input, textarea, select {
       color: #000 !important;
     }
 
-    .logo-img { max-width: 180px; }
+    .header, thead tr, .total-row td, .tabela-header, footer {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
   }
