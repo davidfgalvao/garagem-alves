@@ -14,9 +14,21 @@ function linhaVazia(tr) {
 }
 
 function prepararImpressao() {
-  document.querySelectorAll('#itens-body tr').forEach(tr => {
-    tr.classList.toggle('print-hide', linhaVazia(tr));
+  const rows = Array.from(document.querySelectorAll('#itens-body tr'));
+  let linhasVaziasVisiveis = 0;
+  const maxLinhasVazias = 4;
+
+  rows.forEach(tr => {
+    if (!linhaVazia(tr)) {
+      tr.classList.remove('print-hide');
+    } else if (linhasVaziasVisiveis < maxLinhasVazias) {
+      tr.classList.remove('print-hide');
+      linhasVaziasVisiveis++;
+    } else {
+      tr.classList.add('print-hide');
+    }
   });
+
   document.body.classList.add('printing');
 }
 

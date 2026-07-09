@@ -627,14 +627,14 @@
 
   @media print {
     @page {
-      margin: 5mm;
+      margin: 8mm;
       size: A4 portrait;
     }
 
     html, body {
       background: white !important;
-      font-size: 9px !important;
-      line-height: 1.2;
+      font-size: 12px !important;
+      line-height: 1.35;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
     }
@@ -644,6 +644,7 @@
       margin: 0;
       border-radius: 0;
       max-width: 100%;
+      width: 100%;
       page-break-inside: avoid;
       page-break-after: avoid;
     }
@@ -652,199 +653,192 @@
 
     tr.print-hide { display: none !important; }
 
-    /* Cabeçalho compacto */
+    /* Cabeçalho */
     .header {
-      padding: 6px 10px !important;
-      gap: 6px !important;
+      padding: 10px 16px !important;
+      gap: 10px !important;
     }
 
     .logo-img {
-      max-width: 110px !important;
-      max-height: 50px;
+      max-width: 175px !important;
+      max-height: 72px;
     }
 
-    .servicos-lista,
-    .header-contato,
-    .dev-credit {
-      display: none !important;
+    .dev-credit { display: none !important; }
+
+    .servicos-lista li {
+      font-size: 0.68rem !important;
+      padding: 1px 0 !important;
     }
 
-    .header-info { gap: 0 !important; }
+    .header-contato span { font-size: 0.68rem !important; }
+
+    .header-info { gap: 6px !important; }
 
     /* Título */
     .titulo-os {
-      padding: 4px 10px !important;
-      border-bottom-width: 2px;
-      gap: 4px !important;
+      padding: 8px 16px 6px !important;
+      gap: 8px !important;
     }
 
-    .titulo-os h1 { font-size: 1rem !important; }
+    .titulo-os h1 { font-size: 1.4rem !important; }
 
     .recibo-box, .data-box {
-      padding: 2px 6px !important;
-      border-width: 1px;
+      padding: 3px 10px !important;
     }
 
-    .recibo-box label, .data-box label { font-size: 0.6rem !important; }
+    .recibo-box label, .data-box label { font-size: 0.72rem !important; }
 
-    .recibo-box input { font-size: 0.75rem !important; }
+    .recibo-box input { font-size: 0.9rem !important; }
 
     .data-box input[type="date"] {
-      font-size: 0.7rem !important;
-      min-width: 90px;
+      font-size: 0.82rem !important;
+      min-width: 115px;
     }
 
     /* Campos do cliente */
-    .section { padding: 4px 10px !important; }
+    .section { padding: 8px 16px !important; }
 
     .campo-grupo {
-      gap: 6px !important;
-      margin-bottom: 3px !important;
+      gap: 10px !important;
+      margin-bottom: 6px !important;
     }
 
-    .campo label { font-size: 0.55rem !important; margin-bottom: 1px !important; }
+    .campo label {
+      font-size: 0.68rem !important;
+      margin-bottom: 2px !important;
+    }
 
     .campo input, .campo select {
-      padding: 1px 2px !important;
-      font-size: 9px !important;
-      border-bottom-width: 1px;
+      padding: 4px 2px !important;
+      font-size: 11px !important;
     }
 
     /* Tabela */
-    .tabela-header { padding: 3px 10px !important; }
+    .tabela-header { padding: 5px 16px !important; }
 
-    .tabela-header h2 { font-size: 0.6rem !important; }
+    .tabela-header h2 { font-size: 0.78rem !important; }
 
     thead th {
-      padding: 3px 4px !important;
-      font-size: 0.55rem !important;
+      padding: 5px 8px !important;
+      font-size: 0.72rem !important;
     }
 
-    tbody td { padding: 0 !important; }
-
     tbody td input {
-      padding: 2px 3px !important;
-      font-size: 8px !important;
+      padding: 5px 6px !important;
+      font-size: 10px !important;
     }
 
     tbody tr:nth-child(even) { background: #f7f9fc !important; }
 
     .total-row td {
-      padding: 3px 6px !important;
-      font-size: 0.6rem !important;
+      padding: 6px 10px !important;
+      font-size: 0.75rem !important;
     }
 
-    .total-row td span { font-size: 0.7rem !important; }
+    .total-row td span { font-size: 0.85rem !important; }
 
     table { min-width: 0 !important; }
 
     /* Financeiro */
     .financeiro {
-      padding: 4px 10px !important;
-      gap: 8px !important;
+      padding: 8px 16px !important;
+      gap: 12px !important;
     }
 
-    .linha-valor { margin-bottom: 2px !important; gap: 4px !important; }
+    .linha-valor { margin-bottom: 5px !important; }
 
-    .linha-valor label { font-size: 0.6rem !important; min-width: 70px; }
+    .linha-valor label { font-size: 0.72rem !important; }
 
-    .linha-valor.destaque label { font-size: 0.65rem !important; }
+    .linha-valor.destaque label { font-size: 0.8rem !important; }
 
     .linha-valor input {
-      padding: 1px 4px !important;
-      font-size: 9px !important;
-      width: 90px;
-      border-bottom-width: 1px;
+      padding: 3px 6px !important;
+      font-size: 11px !important;
+      width: 120px;
     }
 
-    .bloco-pagamento h3 { font-size: 0.6rem !important; margin-bottom: 3px !important; }
+    .bloco-pagamento h3 { font-size: 0.72rem !important; margin-bottom: 6px !important; }
 
-    .condicoes { gap: 6px !important; margin-bottom: 3px !important; }
+    .condicoes label { font-size: 0.75rem !important; }
 
-    .condicoes label { font-size: 0.65rem !important; }
-
-    .condicoes input[type="checkbox"] { width: 10px; height: 10px; }
+    .condicoes input[type="checkbox"] { width: 12px; height: 12px; }
 
     .condicoes .parcelas-input {
-      font-size: 8px !important;
-      width: 90px;
-      padding: 1px 2px !important;
+      font-size: 10px !important;
+      width: 120px;
+      padding: 3px 4px !important;
     }
 
-    .forma-label { font-size: 0.55rem !important; margin-bottom: 2px !important; }
+    .forma-label { font-size: 0.68rem !important; }
 
     .forma-btn {
-      padding: 2px 5px !important;
-      font-size: 0.55rem !important;
-      border-width: 1px;
+      padding: 4px 8px !important;
+      font-size: 0.65rem !important;
     }
 
     /* Garantia e observações */
     .garantia-obs {
-      padding: 4px 10px !important;
-      gap: 8px !important;
+      padding: 8px 16px !important;
+      gap: 12px !important;
     }
 
     .garantia-icone {
-      width: 32px !important;
-      height: 32px !important;
-      font-size: 0.45rem !important;
+      width: 46px !important;
+      height: 46px !important;
+      font-size: 0.52rem !important;
     }
 
-    .garantia-texto h3 { font-size: 0.6rem !important; margin-bottom: 1px !important; }
+    .garantia-texto h3 { font-size: 0.75rem !important; }
 
-    .garantia-texto p { font-size: 0.55rem !important; line-height: 1.25 !important; }
+    .garantia-texto p { font-size: 0.65rem !important; line-height: 1.35 !important; }
 
-    .bloco-obs label { font-size: 0.55rem !important; margin-bottom: 2px !important; }
+    .bloco-obs label { font-size: 0.68rem !important; }
 
     .bloco-obs textarea {
-      min-height: 28px !important;
-      max-height: 36px !important;
-      padding: 3px !important;
-      font-size: 8px !important;
+      min-height: 48px !important;
+      max-height: 60px !important;
+      padding: 5px !important;
+      font-size: 10px !important;
       resize: none;
       overflow: hidden;
     }
 
     /* Assinaturas */
     .assinaturas {
-      padding: 4px 10px 2px !important;
-      gap: 16px !important;
+      padding: 10px 16px 6px !important;
+      gap: 24px !important;
     }
 
     .assinatura-linha {
-      min-height: 18px !important;
-      margin-bottom: 2px !important;
-      border-top-width: 1px;
+      min-height: 32px !important;
+      margin-bottom: 4px !important;
     }
 
-    .assinatura span { font-size: 0.55rem !important; }
+    .assinatura span { font-size: 0.68rem !important; }
 
-    /* Rodapé compacto */
+    /* Rodapé */
     footer {
-      padding: 5px 10px !important;
-      gap: 4px !important;
-      flex-wrap: nowrap !important;
+      padding: 8px 16px !important;
+      gap: 8px !important;
     }
 
-    .footer-bloco { gap: 1px !important; flex: 1; }
+    .footer-bloco .titulo { font-size: 0.58rem !important; }
 
-    .footer-bloco .titulo { font-size: 0.5rem !important; }
+    .footer-bloco .valor { font-size: 0.75rem !important; }
 
-    .footer-bloco .valor { font-size: 0.6rem !important; }
-
-    .footer-bloco .valor.grande { font-size: 0.65rem !important; }
+    .footer-bloco .valor.grande { font-size: 0.82rem !important; }
 
     .footer-slogan {
-      font-size: 0.55rem !important;
-      padding-top: 3px !important;
-      margin-top: 2px !important;
+      font-size: 0.72rem !important;
+      padding-top: 6px !important;
+      margin-top: 4px !important;
     }
 
     .dev-credit-rodape {
-      font-size: 0.48rem !important;
-      padding-top: 3px !important;
-      margin-top: 2px !important;
+      font-size: 0.58rem !important;
+      padding-top: 5px !important;
+      margin-top: 3px !important;
     }
 
     .campo input, .campo select, tbody td input,
