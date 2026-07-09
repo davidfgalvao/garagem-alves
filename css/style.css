@@ -70,6 +70,17 @@ body {
 .servicos-lista li:nth-child(3)::before { content: "🛞 "; color: var(--azul-claro); }
 .servicos-lista li:nth-child(4)::before { content: "🔧 "; color: var(--azul-claro); }
 
+.dev-credit-header {
+  text-align: center;
+  font-size: 0.62rem;
+  color: #7eb0ff;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  padding: 5px 12px 6px;
+  background: #0a1628;
+  border-top: 1px solid rgba(77, 158, 255, 0.25);
+}
+
 /* ── TÍTULO OS ── */
 .titulo-os {
   padding: 14px 20px 10px;
@@ -679,6 +690,11 @@ footer {
   .header-banner {
     max-height: 280px !important;
     object-fit: contain !important;
+  }
+
+  .dev-credit-header {
+    font-size: 0.52rem !important;
+    padding: 3px 8px !important;
   }
 
   .servicos-lista { top: 6px; right: 10px; }
