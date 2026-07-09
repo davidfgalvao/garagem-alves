@@ -21,44 +21,44 @@ npm run dev
 
 Abra [http://localhost:3000](http://localhost:3000) no navegador.
 
-## Deploy na Vercel
+## Deploy na Vercel (conta `brunodab10-7017`)
 
-### Primeira vez
+### Passo 1 — Publicar no GitHub (`davidfgalvao`)
 
-1. Instale a CLI da Vercel (se ainda não tiver):
+No terminal, dentro da pasta do projeto:
 
 ```bash
-npm i -g vercel
+cd /Users/davidgalvao/garagem_alves
+gh auth login
+gh repo create garagem-alves --public --source=. --remote=origin --push
 ```
 
-2. Na pasta do projeto, faça login e deploy:
+> Se preferir criar pelo site: acesse [github.com/new](https://github.com/new), nomeie `garagem-alves` e depois rode:
+>
+> ```bash
+> git remote add origin https://github.com/davidfgalvao/garagem-alves.git
+> git push -u origin main
+> ```
+
+### Passo 2 — Conectar na Vercel
+
+1. Acesse [vercel.com/brunodab10-7017s-projects](https://vercel.com/brunodab10-7017s-projects)
+2. Clique em **Add New… → Project**
+3. Selecione o repositório **`davidfgalvao/garagem-alves`**
+4. Mantenha as configurações padrão (Framework: **Other**, sem build command)
+5. Clique em **Deploy**
+
+A URL ficará algo como: **`https://garagem-alves.vercel.app`**
+
+### Atualizações futuras
+
+Basta fazer commit e push — a Vercel publica automaticamente:
 
 ```bash
-cd garagem_alves
-vercel login
-vercel
-```
-
-3. Para publicar em produção:
-
-```bash
-vercel --prod
-```
-
-### Via GitHub (recomendado)
-
-1. Crie um repositório no GitHub e envie o código:
-
-```bash
-git init
 git add .
-git commit -m "feat: Adiciona sistema de ordem de serviço da Garagem do Alves"
-git remote add origin https://github.com/SEU_USUARIO/garagem-alves.git
-git push -u origin main
+git commit -m "feat: sua alteração"
+git push
 ```
-
-2. Acesse [vercel.com](https://vercel.com), clique em **Add New Project** e importe o repositório.
-3. A Vercel detecta automaticamente o site estático — basta clicar em **Deploy**.
 
 ## Estrutura do projeto
 
