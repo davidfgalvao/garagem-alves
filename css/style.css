@@ -95,40 +95,42 @@ body {
 
 /* ── TÍTULO OS ── */
 .titulo-os {
-  padding: 14px 20px 10px;
+  padding: 6px 20px 5px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   border-bottom: 3px solid var(--azul);
 }
 
 .titulo-os h1 {
   font-family: var(--fonte-heading);
-  font-size: 1.55rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--preto);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.4px;
+  line-height: 1.15;
 }
 
 .titulo-os h1 span { color: var(--azul); }
 
 .recibo-data {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
-  align-items: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
 }
 
 .recibo-box, .data-box {
   border: 2px solid var(--azul);
   border-radius: 3px;
-  padding: 3px 10px;
+  padding: 2px 8px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .recibo-box label, .data-box label {
@@ -758,12 +760,12 @@ footer {
   }
 
   .titulo-os {
-    padding: 10px 14px 8px;
+    padding: 8px 14px 6px;
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .titulo-os h1 { font-size: 1.1rem; }
+  .titulo-os h1 { font-size: 1rem; }
 
   .recibo-data {
     align-items: flex-start;
@@ -910,13 +912,17 @@ footer {
   /* Mantém mesma estrutura visual da tela */
   .titulo-os {
     flex-direction: row !important;
-    align-items: flex-start !important;
+    align-items: center !important;
     justify-content: space-between !important;
+    padding: 4px 14px 3px !important;
   }
 
+  .titulo-os h1 { font-size: 0.95rem !important; }
+
   .recibo-data {
-    flex-direction: column !important;
-    align-items: flex-end !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 6px !important;
   }
 
   .campo {
